@@ -1,24 +1,3 @@
-/*
-  IoT-Farming-System — ESP32 Firmware (enhanced)
-  ==============================================
-
-  Sends real-time soil moisture, temperature and humidity to the
-  Firebase Realtime Database ("sensor.json"). An optional 5V relay
-  module switches a 12V water pump based on soil moisture
-  (automated irrigation, hysteresis between 30% and 45%).
-
-  Enhancements over the original sketch:
-    - automatic WiFi reconnection with a retry interval
-    - non-blocking, configurable reporting interval
-    - averaged soil readings for stable percentages
-    - NTP timestamp in every payload (enables history on the dashboard)
-    - device id + raw ADC value + pump state in the payload
-    - DHT11 read retries + Serial diagnostics
-
-  Set up:
-    - Arduino IDE: esp32 boards must be installed
-    - Update WIFI_SSID / WIFI_PASSWORD / FIREBASE_HOST below
-*/
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -26,14 +5,14 @@
 #include <SimpleDHT.h>
 #include <time.h>
 
-// ---- WiFi ---------------------------------------------------------------
+
 #define WIFI_SSID          "naughty"
 #define WIFI_PASSWORD      "12345678"
 
-// ---- Firebase Realtime Database -----------------------------------------
+
 #define FIREBASE_HOST      "soilmoisturedata-44dd2-default-rtdb.asia-southeast1.firebasedatabase.app"
 
-// ---- Device identity -----------------------------------------------------
+
 #define DEVICE_ID          "ESP32-FARMING-01"
 
 // ---- Sensors --------------------------------------------------------------
@@ -45,25 +24,25 @@ SimpleDHT11 dht11(DHT11_PIN);
 #define MOISTURE_WET_VALUE   800     // raw reading when soil is wettest
 #define MOISTURE_DRY_VALUE  3500     // raw reading when soil is driest
 
-// ---- Automated irrigation (5V relay + 12V water pump) ----------------------
+
 const int  PUMP_RELAY_PIN = 25;          // digital pin driving the relay
 const int  MOISTURE_DRY_THRESHOLD = 30;  // pump ON when moisture <= 30
 const int  MOISTURE_WET_THRESHOLD = 45;  // pump OFF when moisture >= 45
 const bool AUTO_PUMP              = true;
 
-// ---- Timing -----------------------------------------------------------------
+
 const unsigned long SEND_INTERVAL_MS  = 10000;
 const unsigned long WIFI_RETRY_MS     = 30000;
 const int           MOISTURE_SAMPLES  = 5;
 
-// ---- Globals ------------------------------------------------------------------
+
 static struct tm  timeinfo;
 static bool       haveTime      = false;
 static bool       pumpOn        = false;
 static unsigned long lastSend   = 0;
 static unsigned long lastWiFiRetry = 0;
 
-// ---- Helpers ------------------------------------------------------------------
+
 static void connectWiFi() {
   if (WiFi.status() == WL_CONNECTED) return;
   Serial.print("[WiFi] Connecting to '" WIFI_SSID "'");
@@ -169,7 +148,7 @@ static bool sendToFirebase(const String& json) {
   return code > 0;
 }
 
-// ---- Main loop ----------------------------------------------------------------
+
 void setup() {
   Serial.begin(115200);
   delay(1000);
@@ -190,19 +169,19 @@ void loop() {
     }
   }
 
-  // ---- Sensors ------------------------------------------------------------
+
   int raw = 0;
   int moisture = readMoisturePercent(&raw);
   byte temp = 0, hum = 0;
   readEnvironment(&temp, &hum);
 
-  // ---- Automated irrigation (hysteresis) ------------------------------------
+  
   if (AUTO_PUMP) {
     if (moisture <= MOISTURE_DRY_THRESHOLD) startPump();
     else if (moisture >= MOISTURE_WET_THRESHOLD) stopPump();
   }
 
-  // ---- Report to Firebase (non-blocking) -------------------------------------
+
   if (now - lastSend >= SEND_INTERVAL_MS) {
     lastSend = now;
     refreshTime();
