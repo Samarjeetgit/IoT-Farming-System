@@ -1,0 +1,53 @@
+﻿Removed: final_remote_check.txt
+Removed: merge_push_log.txt
+Removed: prototype_push_log.txt
+=== fetch ===
+fetch exit: 0; output: 
+ec99c70 Update info.txt
+4170861 Update README.md
+afc2c90 Merge remote-tracking branch 'origin/main'
+cb21548 Enhance dashboard UI: gauge ring, status pills, animated bars
+32be8c1 Update README.md
+dc795a0 Update IoT_Farming_System.ino
+=== status ===
+ D final_remote_check.txt
+ D merge_push_log.txt
+=== merge origin/main ===
+Merge made by the 'ort' strategy.
+ README.md | 9 ---------
+ info.txt  | 3 +--
+ 2 files changed, 1 insertion(+), 11 deletions(-)
+merge exit: 0
+ D final_remote_check.txt
+ D merge_push_log.txt
+=== commit (if needed) ===
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    final_remote_check.txt
+	deleted:    merge_push_log.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+HEAD: cbdb380 Merge remote-tracking branch 'origin/main'
+=== push ===
+push exit: 0
+=== remote log ===
+cbdb380 Merge remote-tracking branch 'origin/main'
+19ae82c Add dashboard_prototype.md (textual prototype of the enhanced dashboard UI)
+ec99c70 Update info.txt
+4170861 Update README.md
+afc2c90 Merge remote-tracking branch 'origin/main'
+cb21548 Enhance dashboard UI: gauge ring, status pills, animated bars
+=== remote tree ===
+README.md
+Soil Moisture.png
+dashboard_prototype.md
+final_remote_check.txt
+firmware/IoT_Farming_System.ino
+index.html
+info.txt
+merge_push_log.txt
