@@ -109,13 +109,4 @@ This repository is deployed on GitHub:
 git clone https://github.com/<username>/IoT-Farming-System.git
 ```
 
-## Team / Curriculum
 
-**Developed as part of the B.Tech Computer Science Engineering curriculum.**
-
-- Krishnav Barman (202400252) — Project Lead
-- Samarjeet (202400343) — Firmware / Automation
-- Aayush Bora (202400101)
-- Shourya Sharma (202400705)
-
-Under the guidance of Dr. Samarendra Nath Sur, Associate Professor, Department of Computer Science & Engineering, Sikkim Manipal Institute of Technology.
