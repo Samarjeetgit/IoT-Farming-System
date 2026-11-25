@@ -1,0 +1,12 @@
+﻿=== ls-remote origin ===
+afc2c90dd550f1caf18fdd71aa96c005f22b26fb	HEAD
+afc2c90dd550f1caf18fdd71aa96c005f22b26fb	refs/heads/main
+=== remote tree ===
+README.md
+Soil Moisture.png
+firmware/IoT_Farming_System.ino
+index.html
+info.txt
+=== README title on remote ===
+# IoT-Based Smart Irrigation system
+
