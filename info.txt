@@ -1,3 +1,2 @@
 IoT-Farming-System — Smart agriculture monitoring + automated irrigation (ESP32, Firebase, Web Dashboard)
-Project of: Krishnav Barman (202400252), Samarjeet (202400343), Aayush Bora (202400101), Shourya Sharma (202400705)
-Guide: Dr. Samarendra Nath Sur (Associate Professor, CSE, Sikkim Manipal Institute of Technology)
+
