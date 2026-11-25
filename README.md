@@ -1,4 +1,4 @@
-# IoT-Farming-System
+# IoT-Based Smart Irrigation system
 
 A real-time smart agriculture monitoring system that tracks soil moisture, temperature, and humidity with an ESP32 and syncs the readings to a Firebase Realtime Database, which is visualized on a modern, responsive web dashboard. An optional 5V relay module automates a water pump based on soil moisture levels.
 
